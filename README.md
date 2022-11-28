@@ -63,8 +63,8 @@ Returns all the users in the database. If an Id is provided, it will return just
 
 ```
 ### GET [/api/Lists/{Optional Id}]
-```
 Returns all the lists in the database. If an Id is provided, it will return just the specified list by ListId(pk).
+```
 {
 	"statusCode": 200,
 	"statusDescription": "Success: Lists found",
