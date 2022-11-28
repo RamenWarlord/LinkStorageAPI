@@ -64,6 +64,7 @@ Returns all the users in the database. If an Id is provided, it will return just
 ```
 ### GET [/api/Lists/{Optional Id}]
 ```
+Returns all the lists in the database. If an Id is provided, it will return just the specified list by ListId(pk).
 {
 	"statusCode": 200,
 	"statusDescription": "Success: Lists found",
@@ -91,3 +92,56 @@ Returns all the users in the database. If an Id is provided, it will return just
 	]
 }
 ```
+### GET [/api/Links/{Optional Id}]
+Follows same concept as above two: Returns all the links in the database. If an Id is provided, it will return just the specified link by LinkId(pk).
+
+## POST
+### POST [/api/Users/]
+Takes in firstname, lastname, emailaddress and posts a new entry to the Users table in the database. Id is auto_increment in the mysql so we don't need to pass it.
+### Example request body to ```POST https://localhost:7250/api/Users/``` on my end:
+```
+{
+		"firstName": "David",
+		"lastName": "Ye",
+		"emailAddress": "bingchilling14@gmail.com"
+}
+```
+### Example response body to above mentioned request body:
+```
+{
+	"statusCode": 201,
+	"statusDescription": "Success: User was created.",
+	"result": {
+		"userId": 4,
+		"firstName": "David",
+		"lastName": "Ye",
+		"emailAddress": "bingchilling14@gmail.com"
+	}
+}
+```
+### POST [/api/Lists/]
+Takes in corresponding user id(fk) and the list name and posts new entry to Lists table in database. List id(pk) is auto increment so it is automatically done in mysql. We dont need to pass it.
+### POST [/api/Links/]
+Takes in corresponding list id(fk) and the link item and posts new entry to Links table in database. Link id(pk) is auto increment so it is automatically done in mysql. We dont need to pass it.
+
+## DELETE
+### DELETE [/api/Users/{Required Id}]
+### Example reponse body to calling ```DELETE https://localhost:7250/api/Users/4``` (user exists) on my end:
+```
+{
+	"statusCode": 200,
+	"statusDescription": "Success: User was deleted.",
+	"result": ""
+}
+```
+### Example reponse body to calling ```DELETE https://localhost:7250/api/Users/6``` (user does not exist) on my end:
+```
+{
+	"statusCode": 404,
+	"statusDescription": "Error NotFound: Users does not exist",
+	"result": null
+}
+```
+### DELETE [/api/Lists/{Required Id}]
+### DELETE [/api/Links/{Required Id}]
+Same concept as seen with Users. Lists require ListId(pk). Links require LinkId(pk).
