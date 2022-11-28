@@ -119,6 +119,24 @@ Takes in firstname, lastname, emailaddress and posts a new entry to the Users ta
 	}
 }
 ```
+### Example response to ```POST https://localhost:7250/api/Users/``` when emailaddress is already in use (user already created):
+### Example request body
+```
+{
+		"firstName": "David",
+		"lastName": "Ye",
+		"emailAddress": "bingchilling14@gmail.com"
+}
+```
+### Example response body
+```
+{
+	"statusCode": 403,
+	"statusDescription": "Error Forbidden: user already exists / email in use",
+	"result": null
+}
+```
+### Posting duplicate is only an issue with User as emailaddress is unique in the database. Lists and links can have duplicate names/item values as well as multiple of such entries belonging to a user.
 ### POST [/api/Lists/]
 Takes in corresponding user id(fk) and the list name and posts new entry to Lists table in database. List id(pk) is auto increment so it is automatically done in mysql. We dont need to pass it.
 ### POST [/api/Links/]
