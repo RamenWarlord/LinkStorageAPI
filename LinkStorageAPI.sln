@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32922.545
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinkStorageAPI", "LinkStorageAPI\LinkStorageAPI.csproj", "{B229D1D9-F16F-4982-A0E0-F8079B75FBB1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B229D1D9-F16F-4982-A0E0-F8079B75FBB1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B229D1D9-F16F-4982-A0E0-F8079B75FBB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B229D1D9-F16F-4982-A0E0-F8079B75FBB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B229D1D9-F16F-4982-A0E0-F8079B75FBB1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CAACCDA8-9C7B-49DC-A2B0-5D13FBA95B90}
+	EndGlobalSection
+EndGlobal
