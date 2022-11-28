@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using LinkStorageAPI.Models;
+using System.Collections;
 
 namespace LinkStorageAPI.Controllers
 {
@@ -110,7 +111,22 @@ namespace LinkStorageAPI.Controllers
             }
 
             _context.Users.Add(user);
-            await _context.SaveChangesAsync();
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateException)
+            {
+                if (!UserExists(user.UserId))
+                {
+                    return StatusCode(403, new Response(403, "Error Forbidden: user already exists / email in use", null));
+                }
+                else
+                {
+                    throw;
+                }
+       
+            }
 
             return StatusCode(201, new Response(201, "Success: User was created.", CreatedAtAction("GetUser", new { id = user.UserId }, user).Value));
         }

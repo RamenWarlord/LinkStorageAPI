@@ -90,6 +90,7 @@ namespace LinkStorageAPI.Controllers
                 return NotFound(new Response(404, "Error NotFound: Lists do not exist", null));
             }
             _context.Lists.Add(lists);
+
             await _context.SaveChangesAsync();
 
             return StatusCode(201, new Response(201, "Success: List was created.", CreatedAtAction("GetLists", new { id = lists.ListId }, lists).Value));
